@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="C:\Users\mom\Downloads\flask-for-beginners\static\css\style.css">
+    <meta charset="UTF-8">
+    <title>DNA Classification App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <style>
+          .button{background-color: #ffa600; color: rgb(255, 255, 255);}
+     </style>
+
+</head>
+
+<script>
+
+function myFunction() {
+var text1= $('#text1').val();
+  $.ajax({
+              url: "/join",
+              type: "POST",
+              data: {text1:text1}
+
+          }).done(function(response) {
+
+            var html= "<br><br><br><p> <b> RESULT : <b><p>";
+
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+="<p>"+val+"<p>"
+
+                });
+                html +="<br>";
+                $(".show-data").append(html);
+            });
+};
+
+  </script>
+
+<body>
+    <p>
+        <div class="center">
+        DNA Classification App<br><br>
+
+            Data File<input type="text" id="text1" name="text1"><br><br>
+            <button id="clicked" onclick="myFunction()">Classify</button>
+         </div>
+        </p>
+    <div class="show-data" >
+
+    </div>
+</body>
+</html>

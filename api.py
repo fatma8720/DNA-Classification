@@ -31,10 +31,8 @@ def do_something(text1):
    print(df.iloc[0])  # print the information of [0]
    # print("**************************************************************************")
 
-   print(df['Sequence'].iloc[
-             0])  # print the sequence[0] in this template 'tactagcaatacgcttgcgttcggtggttaagtatgtataat...', because usage of fun '.iloc'
-   print(
-       "----------------------------------------------------------------------------------------------------------------")
+   print(df['Sequence'].iloc[0])  # print the sequence[0] in this template 'tactagcaatacgcttgcgttcggtggttaagtatgtataat...', because usage of fun '.iloc'
+   print("----------------------------------------------------------------------------------------------------------------")
 
    # Preprocessing the dataset
 
@@ -110,8 +108,7 @@ def do_something(text1):
 
    # We can't run machine learning algorithms on the data in 'String' formats. We need to switch
    # it to numerical data.
-   numerical_df = pd.get_dummies(
-       df)  # mainplate all sequences by Convert categorical variable [t,c,g,a,+,-] into indicator variables[a0-a56 ,t0-t56 ,...., class+,class-].
+   numerical_df = pd.get_dummies(df)  # mainplate all sequences by Convert categorical variable [t,c,g,a,+,-] into indicator variables[a0-a56 ,t0-t56 ,...., class+,class-].
 
    print("numerical_df")
    print(numerical_df)
@@ -207,9 +204,8 @@ def do_something(text1):
        msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
        print(msg)
        #return msg
-       print(
-           "----------------------------------------------------------------------------------------------------------------")
-   print("****************************************************************************************************")
+       print( "----------------------------------------------------------------------------------------------------------------")
+      # print("****************************************************************************************************")
 
    from sklearn.metrics import classification_report, accuracy_score
    text = " "
@@ -237,16 +233,17 @@ def do_something(text1):
        # specified font size
        # font = ImageFont.truetype(r'C:\Users\System-Pc\Desktop\arial.ttf', 20)
        #report.__add__(report+"\n")
-       text = text.__add__("                                     "+ name + "\n\n\n")
-       text = text.__add__(report + "\n\n\n")
+       accur= "Accuracy is "+ str(accuracy_score(y_test, predictions))
+       text = text.__add__("                         "+ name + "\n\n")
+       text = text.__add__(report + "\n\n")
+       text = text.__add__( "              "+accur + "\n\n------------------------------------------------------------------------------------------\n\n")
        # drawing text size
        #draw.text((5, 5), text, fill="black", align="center")
-
        #image.show()
       # print((report))
        #return image.show()
    print( "----------------------------------------------------------------------------------------------------------------")
-   font = ImageFont.truetype(r'G:\downloads\khayal Font New\Myriad Bold_1.ttf', 75)
+   font = ImageFont.truetype(r'G:\downloads\khayal Font New\Myriad Bold_1.ttf', 65)
    draw.text((250,250), text, fill="black",font=font, align="left")
    # image.show()
    # print((report))

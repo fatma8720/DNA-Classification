@@ -1,13 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link rel="stylesheet" href="C:\Users\mom\Downloads\flask-for-beginners\static\css\style.css">
+	 <style type="text/css">
+    #text1
+{
+
+    font-size:15pt;
+	width: 250px;
+	height: 30px;
+}
+#title{
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.form{
+    margin: 50px auto auto 700px;
+
+    margin-bottom: 10%;
+
+}
+
+body{
+	 background:url("C:\Users\mom\Downloads\flask-for-beginners\WEB.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+
+
+}
+
+#clicked{
+	margin-left: 200px;
+
+   color:#fff;
+    font-size: 13px;
+    padding: 12px 18px;
+    background-color:#79537f;
+    border: none;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 20px;
+		 font-family: cursive;
+
+}
+#clicked:hover{
+    cursor: pointer;
+}
+h1{
+	padding-top: 140px;
+	padding-left: 650px;
+	 font-size: 50px;
+	 font-family: cursive;
+	color:#79537f;
+}
+h3{
+	   color:#79537f;
+font-family: cursive;
+	padding-left: 710px;
+}
+p{
+
+	font-family: cursive;
+    color:#79537f;
+
+		 font-size: 30px;
+
+}
+    </style>
     <meta charset="UTF-8">
     <title>DNA Classification App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <style>
-          .button{background-color: #ffa600; color: rgb(255, 255, 255);}
-     </style>
 
 </head>
 
@@ -15,10 +79,12 @@
 
 function myFunction() {
 var text1= $('#text1').val();
+var text2= $('#text2').val();
   $.ajax({
               url: "/join",
               type: "POST",
-              data: {text1:text1}
+              data: {text1:text1,
+              text2:text2}
 
           }).done(function(response) {
 
@@ -36,18 +102,19 @@ var text1= $('#text1').val();
 };
 
   </script>
-
 <body>
+<img src="WEB.jpg" alt="HTML5 Icon" width="800" height="800">
+       <h1 >Classification of DNA</h1>
+<h3>Using Supervised Machine Learning Techniques</h3>
+	<div class="form">
     <p>
-        <div class="center">
-        DNA Classification App<br><br>
+            File link :<input type="text" id="text1" name="text1"><br><br>
 
-            Data File<input type="text" id="text1" name="text1"><br><br>
             <button id="clicked" onclick="myFunction()">Classify</button>
-         </div>
         </p>
     <div class="show-data" >
 
     </div>
+		</div>
 </body>
 </html>
